@@ -1,5 +1,49 @@
+/* eslint-disable no-useless-escape */
 import React, {Component} from 'react';
+import ReactTypingEffect from 'react-typing-effect';
+
+
 class Home extends Component {
+	constructor()
+	{
+		super()
+		this.state = {
+			email: '',
+			text: '',
+			emailValid: false,         // valid flags for each field
+			textValid: false, 
+			submitDisabled: true       // separate flag for submit
+		}
+
+		this.HandleEmailChange = this.HandleEmailChange.bind(this);
+	}
+
+	validateEmail = (email) => {
+		return email.match(
+			/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		  );
+	  };
+
+	HandleEmailChange(e)
+	{
+		let validityCheck = this.validateEmail(e.target.value);
+		this.setState(() => ({ 
+			email: e.target.value,
+			emailValid: validityCheck
+		 }))//https://stackoverflow.com/questions/35978070/how-to-disable-form-submit-button-until-all-input-fields-are-filled-reactjs-es
+	}
+
+	formSubmit(e){
+		alert(`Submitted succesfully ${this.state.email}`);
+		return(
+			<div id="submitSuccessMessage">
+				<div className="text-center mb-3 mt-2">
+					<div className="fw-bolder">Form submission successful!</div>
+				</div>
+			</div>
+		)
+	}
+
     render() {
 	    return (
 		<div className="row ">
@@ -8,23 +52,20 @@ class Home extends Component {
 			<div className="masthead">
 				<div className="masthead-content text-white">
 					<div className="container-fluid px-4 px-lg-0">
-						<h1 className="fst-italic lh-1 mb-4">Our Website is Coming Soon</h1>
-						<p className="mb-5">We're working hard to finish the development of this site. Sign up below to receive updates and to be notified when we launch!</p>
-						<form id="contactForm" data-sb-form-api-token="API_TOKEN">
+					<ReactTypingEffect
+						text={["Coming Soon.", "We don't need to wait for our website to help you."]}
+						staticText = {<h1>StructureKart</h1>}
+						cursorRenderer={cursor => <h1>{cursor}</h1>}
+						displayTextRenderer={(text) => <h1>{text}</h1>}
+						speed = {200}       
+					/>
+						<form id="contactForm">
 							<div className="row input-group-newsletter">
-								<div className="col"><input className="form-control" id="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-								<div className="col-auto"><button className="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+								<div className="col"><input className="form-control" id="email" type="email" onChange={this.HandleEmailChange.bind(this)} placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email"/></div>
+								<div className="col-auto"><button className="btn btn-primary" id="submitButton" type="submit" onClick={this.formSubmit.bind(this)} disabled={!this.state.emailValid} >Notify Me!</button></div>
 							</div>
 							<div className="invalid-feedback mt-2" data-sb-feedback="email:required">An email is required.</div>
 							<div className="invalid-feedback mt-2" data-sb-feedback="email:email">Email is not valid.</div>
-							<div className="d-none" id="submitSuccessMessage">
-								<div className="text-center mb-3 mt-2">
-									<div className="fw-bolder">Form submission successful!</div>
-									To activate this form, sign up at
-									<br />
-									<a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-								</div>
-							</div>
 							<div className="d-none" id="submitErrorMessage"><div className="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
 						</form>
 					</div>
@@ -45,4 +86,5 @@ class Home extends Component {
 	     );
     }
 }
+
 export default Home;
