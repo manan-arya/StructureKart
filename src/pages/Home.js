@@ -1,8 +1,12 @@
 /* eslint-disable no-useless-escape */
 import React, {Component} from 'react';
 import ReactTypingEffect from 'react-typing-effect';
+import {Push, configureDB} from '../js/DBConnect'
 
-
+let db= null;
+let param = {
+	email: null
+}
 class Home extends Component {
 	constructor()
 	{
@@ -16,6 +20,7 @@ class Home extends Component {
 		}
 
 		this.HandleEmailChange = this.HandleEmailChange.bind(this);
+		db = configureDB();
 	}
 
 	validateEmail = (email) => {
@@ -35,6 +40,8 @@ class Home extends Component {
 
 	formSubmit(e){
 		alert(`Submitted succesfully ${this.state.email}`);
+		param.email = this.state.email;
+		Push(db, param);
 		return(
 			<div id="submitSuccessMessage">
 				<div className="text-center mb-3 mt-2">
