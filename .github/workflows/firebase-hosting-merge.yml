@@ -7,6 +7,11 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
+  create-constants:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Constants
+      - run: echo ${{secrets.APIKEY}} > "src\js\config.js"
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
