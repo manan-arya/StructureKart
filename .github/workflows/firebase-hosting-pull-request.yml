@@ -16,4 +16,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STRUCTUREKART }}'
           projectId: structurekart
         env:
+          CI: true
           API_KEY: '${{ secrets.APIKEY }}'
