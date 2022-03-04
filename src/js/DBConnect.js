@@ -18,8 +18,10 @@ var configureDB = () => {
 
 var Push = async function PushDoc(db, param){
 	try {
-		const docRef = await addDoc(collection(db, "users"), {
-		  email: param.email
+		const collections = collection(db, "users");
+		const docRef = await addDoc(collections, {
+		  email: param.email,
+		  timestamp: new Date().toLocaleString()
 		});
 		console.log("Document written with ID: ", docRef.id);
 	  } catch (e) {

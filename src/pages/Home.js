@@ -42,6 +42,7 @@ class Home extends Component {
 		alert(`Submitted succesfully ${this.state.email}`);
 		param.email = this.state.email;
 		Push(db, param);
+		e.preventDefault();
 		return(
 			<div id="submitSuccessMessage">
 				<div className="text-center mb-3 mt-2">
