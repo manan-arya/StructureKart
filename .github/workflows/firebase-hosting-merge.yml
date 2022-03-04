@@ -7,6 +7,9 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
+  env:
+    CI: true
+    API_KEY: '${{ secrets.APIKEY }}'
   create-constants:
     steps:
       - uses: actions/checkout@v2
