@@ -8,7 +8,7 @@ name: Deploy to Firebase Hosting on merge
       - main
 
 env:
-  CI: true
+  CI: false
   API_KEY: '${{ secrets.APIKEY }}'
 
 jobs:
