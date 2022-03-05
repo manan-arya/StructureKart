@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import {Push, configureDB} from '../js/DBConnect'
+import {companyName} from '../js/Constants'
 
 let db= null;
 let param = {
@@ -59,14 +60,20 @@ class Home extends Component {
 			<video className="bg-video" playsInline="playsInline" autoPlay="autoPlay" muted="muted" loop="loop"><source src="assets/mp4/bg.mp4" type="video/mp4" /></video>
 			<div className="masthead">
 				<div className="masthead-content text-white">
+					{/* <ReactTypingEffect
+							text={["We're here to help you.", "Coming Soon."]}
+							staticText = {<h1>StructureKart</h1>}
+							cursorRenderer={cursor => <h1>{cursor}</h1>}
+							displayTextRenderer={(text) => <h1>{text}</h1>}
+							speed = {200}       
+						/> */}
+					<div className='Coming-Soon-Branding'>
+						<h1>{companyName}</h1>
+					</div>
+					<div className='Coming-Soon-Content'>
+						<h2>We're coming soon.</h2>
+					</div>
 					<div className="container-fluid px-4 px-lg-0">
-					<ReactTypingEffect
-						text={["Coming Soon.", "We don't need to wait for our website to help you."]}
-						staticText = {<h1>StructureKart</h1>}
-						cursorRenderer={cursor => <h1>{cursor}</h1>}
-						displayTextRenderer={(text) => <h1>{text}</h1>}
-						speed = {200}       
-					/>
 						<form id="contactForm">
 							<div className="row input-group-newsletter">
 								<div className="col"><input className="form-control" id="email" type="email" onChange={this.HandleEmailChange.bind(this)} placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email"/></div>
