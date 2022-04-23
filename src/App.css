@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.masthead{
+  margin-bottom: 10%
+}
+
+@media (min-width: 992px) {
+  .masthead {
+    height: 50%;
+    width: 75vw;
+    min-height: 25vw;
+}
+}
+
+.container-fluid{
+  /* margin-top: 2em; */
+}
+
+.Coming-Soon-Content h2{
+  font-size: calc(2rem + 0.9vw);
+}
+
+.Coming-Soon-Branding{
+  font-size: calc(3rem + 0.9vw);
+}
+
+.masthead-content > * {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
