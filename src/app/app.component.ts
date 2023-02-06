@@ -5,6 +5,9 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { filter, Subscription } from 'rxjs';
 
+import { initializeApp } from 'firebase/app';
+
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -47,6 +50,19 @@ export class AppComponent implements OnInit {
             body.classList.add('ie-background');
 
         }
+
+        // TODO: Replace the following with your app's Firebase project configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCgw6cha5BYt8DvGsPEd3QWtAs0ujSRnKk",
+            authDomain: "structurekart.firebaseapp.com",
+            projectId: "structurekart",
+            storageBucket: "structurekart.appspot.com",
+            messagingSenderId: "984958261982",
+            appId: "1:984958261982:web:8a157e6ec2cb6e780dc04f",
+            measurementId: "G-SZ39E5SFXJ"
+        };
+  
+        const app = initializeApp(firebaseConfig);
 
     }
     removeFooter() {

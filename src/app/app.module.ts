@@ -13,7 +13,6 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { HomeComponent } from './Pages/Home';
 
-
 @NgModule({
   declarations: [
     AppComponent,
