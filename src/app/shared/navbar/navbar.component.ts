@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import * as GlobalVars from '../../../Globals';

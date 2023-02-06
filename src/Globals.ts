@@ -1,1 +1,1 @@
-export const BrandName='StructureWorld'; 
+export const BrandName="StructureWorld";

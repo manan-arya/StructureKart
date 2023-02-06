@@ -9,6 +9,9 @@
 				<ngb-tabset [justify]="'center'">
 					<ngb-tab *ngFor="let item of friendlist | keyvalue" title={{item.value.title}}>
 						<ng-template ngbTabContent>
+							<div *ngif = "HasImage()">
+								<img src = {{item.value.imgPath}}>
+							</div> 
 							<p>{{item.value.text}}</p>
 						</ng-template>
 					</ngb-tab>
