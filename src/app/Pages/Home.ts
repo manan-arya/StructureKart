@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { workDetails } from 'WorkText';
+import {Component} from "@angular/core";
+import {workDetails} from "WorkText";
 
 @Component({
     selector: 'Home-Component',
