@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { workDetails } from 'WorkText';
 
 @Component({
     selector: 'Home-Component',
@@ -12,7 +13,13 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
 	public GoToContact($event){
-		window.scrollTo(0,0);
+		window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
 	}
+
+    public friendlist = workDetails;
 }
 
