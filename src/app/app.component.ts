@@ -8,6 +8,8 @@ import {filter, Subscription} from "rxjs";
 
 import {initializeApp} from "firebase/app";
 
+import { BrandName } from "Globals";
+
 
 @Component({
   selector: "app-root2",
@@ -15,6 +17,7 @@ import {initializeApp} from "firebase/app";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
+  CompanyName : string;
   private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
 
@@ -63,6 +66,8 @@ export class AppComponent implements OnInit {
       };
 
       const app = initializeApp(firebaseConfig);
+
+      this.CompanyName = BrandName;
     }
     removeFooter() {
       let titlee = this.location.prepareExternalUrl(this.location.path());

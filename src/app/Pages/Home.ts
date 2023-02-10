@@ -1,6 +1,7 @@
 /* eslint-disable */
 import {Component} from "@angular/core";
 import {workDetails} from "WorkText";
+import { SignupComponent } from "app/examples/signup/signup.component";
 
 @Component({
   selector: "Home-Component",
