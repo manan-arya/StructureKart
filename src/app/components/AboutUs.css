@@ -1,0 +1,12 @@
+.own-image{
+	display: inline-block;
+    
+}
+
+.AboutUsText{
+	display: inline-grid;
+    vertical-align: top;
+    padding: 5%;
+    border: solid;
+    margin: 5%
+}

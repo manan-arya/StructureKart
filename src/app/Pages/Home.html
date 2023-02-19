@@ -1,7 +1,6 @@
-<app-navbar></app-navbar>
 <div class="wrapper">
 	<div class="page-header section-dark" style="background-image: url('assets/img/constructionHome.jpg')">
-		<button class="btn btn-primary btn-round" (click) = "GoToContact($event)">Hello world</button>
+		<button class="btn btn-outline-primary btn-round" (click) = "GoToContact($event)">Hello world</button>
 	</div>
 	<div class="Block">
 		<div class="nav-tabs-navigation">
@@ -18,5 +17,31 @@
 				</ngb-tabset>
 			</div>
 		</div>
+		<div class="card page-carousel" id="carousel">
+			<ngb-carousel>
+				<ng-template ngbSlide>
+					<img src="../../assets/img/pexels-igor-starkov-1117452.jpg" alt="Random first slide">
+					<div class="carousel-caption">
+						<p>Somewhere</p>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<img src="../../assets/img/pexels-pixabay-159045.jpg" alt="Random second slide">
+					<div class="carousel-caption">
+						<p>Somewhere else</p>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<img src="../../assets/img/pexels-rodolfo-quirós-2219024.jpg" alt="Random third slide">
+					<div class="carousel-caption">
+						<p>Here it is</p>
+					</div>
+				</ng-template>
+			</ngb-carousel>
 	</div>
+	<div class="form-group">
+		<contact-form></contact-form>
+	</div>
+	Map
+	<aboutus-component></aboutus-component>
 </div>

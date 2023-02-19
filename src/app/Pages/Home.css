@@ -1,4 +1,10 @@
 .Block{
-	width: 75%;
 	border: 4px
+}
+
+.form-group{
+    width: 50%;
+    border-width: thick;
+    display: inline-block;
+    border-right: solid;
 }

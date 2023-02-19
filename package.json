@@ -8,12 +8,20 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "start": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng serve -o",
+    "build": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build",
+    "build:dev": "ng build",
+    "build:stat": "npm run build -- --stats-json",
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
+    "test": "ng test --watch=true --source-map=true",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
+    "server": "npm run start",
+    "test:dev": "ng test --watch=true --source-map=false --browsers ChromeHeadless --reporters mocha",
+    "test:teamcity": "ng test --watch=false --source-map=false --browsers ChromeHeadless --reporters teamcity,mocha",
+    "test:sonar": "npm run test:coverage",
+    "test:coverage": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng test --watch=false --source-map=true --browsers ChromeHeadless --code-coverage",
+    "compodoc": "npx compodoc -p src/tsconfig.documentation.json",
+    "example": "node --max_old_space_size=4096 ./node_modules/APP"
   },
   "dependencies": {
     "@angular/animations": "^14.2.0",
