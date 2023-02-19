@@ -64,6 +64,18 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+    isLogin() {
+        var currentPath = this.location.prepareExternalUrl(this.location.path());
+        if(currentPath.charAt(0) === '#'){
+            currentPath = currentPath.slice( 1 );
+        }
+          if( currentPath === '/signup' ) {
+              return true;
+          }
+          else {
+              return false;
+          }
+    }
     isDocumentation() {
       var titlee = this.location.prepareExternalUrl(this.location.path());
       if(titlee.charAt(0) === '#'){

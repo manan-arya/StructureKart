@@ -14,6 +14,8 @@ import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
 import { HomeComponent } from './Pages/Home';
 import { SignupComponent } from './examples/signup/signup.component';
+import {ContactForm} from '../app/components/ContactForm';
+import {AboutUs} from '../app/components/AboutUs';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SignupComponent } from './examples/signup/signup.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    ContactForm,
+    AboutUs
   ],
   imports: [
     BrowserModule,

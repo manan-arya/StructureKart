@@ -2,15 +2,12 @@
 import {Component} from "@angular/core";
 import {workDetails} from "WorkText";
 import { SignupComponent } from "app/examples/signup/signup.component";
+import { ContactForm } from "app/components/ContactForm";
 
 @Component({
   selector: "Home-Component",
   templateUrl: "./Home.html",
-  styles: [`
-    ngb-progressbar {
-        margin-top: 5rem;
-    }
-    `],
+  styleUrls: ["./Home.css"]
 })
 
 export class HomeComponent {
@@ -18,7 +15,7 @@ export class HomeComponent {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   }
 

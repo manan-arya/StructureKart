@@ -6,7 +6,7 @@ import {DOCUMENT, LocationStrategy, PlatformLocation, Location} from "@angular/c
 import {NavbarComponent} from "./shared/navbar/navbar.component";
 import {filter, Subscription} from "rxjs";
 
-import {initializeApp} from "firebase/app";
+import {FirebaseApp, initializeApp} from "firebase/app";
 
 import { BrandName } from "Globals";
 
@@ -16,6 +16,7 @@ import { BrandName } from "Globals";
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
+
 export class AppComponent implements OnInit {
   CompanyName : string;
   private _router: Subscription;
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit {
         measurementId: "G-SZ39E5SFXJ",
       };
 
-      const app = initializeApp(firebaseConfig);
+      app = initializeApp(firebaseConfig);
 
       this.CompanyName = BrandName;
     }
@@ -79,3 +80,6 @@ export class AppComponent implements OnInit {
       }
     }
 }
+
+export var app : FirebaseApp;
+
